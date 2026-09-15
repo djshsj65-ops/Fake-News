@@ -552,3 +552,267 @@ function updateStats() {
         storage.getItem(fakeKey) || "0";
 
 }
+/* ================= SETTINGS FUNCTIONS ================= */
+
+
+/* SAVE PROFILE */
+
+function saveProfile() {
+
+    function saveProfile() {
+
+    const nameInput = document.getElementById("settingsName");
+    const emailInput = document.getElementById("settingsEmailInput");
+
+    const name = nameInput.value.trim();
+    const email = emailInput.value.trim();
+
+    if (!name) {
+        alert("Please enter your name.");
+        return;
+    }
+
+    if (!email) {
+        alert("Please enter your email.");
+        return;
+    }
+
+    localStorage.setItem("name", name);
+    localStorage.setItem("email", email);
+
+    updateProfileUI();
+
+    alert("Profile saved successfully!");
+}
+}
+
+
+/* APPEARANCE */
+
+function toggleAppearance() {
+
+    const toggle = document.getElementById("appearanceToggle");
+
+    if (!toggle) return;
+
+    if (toggle.checked) {
+
+        document.body.classList.add("dark-mode");
+
+        localStorage.setItem("appearance", "dark");
+
+    } else {
+
+        document.body.classList.remove("dark-mode");
+
+        localStorage.setItem("appearance", "light");
+
+    }
+}
+
+
+/* LOAD APPEARANCE */
+
+function loadAppearance() {
+
+    const toggle = document.getElementById("appearanceToggle");
+
+    if (!toggle) return;
+
+    const appearance =
+        localStorage.getItem("appearance") || "light";
+
+    if (appearance === "dark") {
+
+        document.body.classList.add("dark-mode");
+        toggle.checked = true;
+
+    } else {
+
+        document.body.classList.remove("dark-mode");
+        toggle.checked = false;
+
+    }
+}
+
+
+/* LANGUAGE */
+
+function saveLanguage() {
+
+    const languageSelect =
+        document.getElementById("languageSelect");
+
+    if (!languageSelect) return;
+
+    const language = languageSelect.value;
+
+    localStorage.setItem("language", language);
+
+    alert("Language preference saved as " + language + ".");
+}
+
+
+/* LOAD LANGUAGE */
+
+function loadLanguage() {
+
+    const languageSelect =
+        document.getElementById("languageSelect");
+
+    if (!languageSelect) return;
+
+    const language =
+        localStorage.getItem("language") || "English";
+
+    languageSelect.value = language;
+}
+
+
+/* NOTIFICATIONS */
+
+function toggleNotifications() {
+
+    const toggle =
+        document.getElementById("notificationToggle");
+
+    if (!toggle) return;
+
+    localStorage.setItem(
+        "notifications",
+        toggle.checked ? "on" : "off"
+    );
+
+    alert(
+        toggle.checked
+            ? "Notifications enabled."
+            : "Notifications disabled."
+    );
+}
+
+
+/* LOAD NOTIFICATIONS */
+
+function loadNotifications() {
+
+    const toggle =
+        document.getElementById("notificationToggle");
+
+    if (!toggle) return;
+
+    const notifications =
+        localStorage.getItem("notifications");
+
+    toggle.checked = notifications !== "off";
+}
+
+
+/* CLEAR HISTORY */
+
+function clearHistory() {
+
+    const confirmClear =
+        confirm(
+            "Are you sure you want to clear all your analysis history?"
+        );
+
+    if (!confirmClear) return;
+
+    localStorage.removeItem("history");
+
+    sessionStorage.removeItem("history");
+
+    updateStats();
+
+    const historyList =
+        document.getElementById("historyList");
+
+    if (historyList) {
+        historyList.innerHTML = "No history yet.";
+    }
+
+    const activityList =
+        document.getElementById("activityList");
+
+    if (activityList) {
+        activityList.innerHTML = `
+            <div class="activity">
+                <div class="activity-title">No checks yet</div>
+                <div class="activity-time">
+                    Analyze your first article
+                </div>
+            </div>
+        `;
+    }
+
+    alert("Analysis history cleared.");
+}
+
+
+/* CHANGE PASSWORD */
+
+function changePassword() {
+
+    const passwordInput =
+        document.getElementById("newPassword");
+
+    if (!passwordInput) return;
+
+    const newPassword =
+        passwordInput.value.trim();
+
+    if (!newPassword) {
+        alert("Please enter a new password.");
+        return;
+    }
+
+    if (newPassword.length < 6) {
+        alert("Password must be at least 6 characters.");
+        return;
+    }
+
+    localStorage.setItem("password", newPassword);
+
+    passwordInput.value = "";
+
+    alert("Password changed successfully!");
+}
+
+
+/* LOAD SETTINGS */
+
+function loadSettings() {
+
+    const nameInput =
+        document.getElementById("settingsName");
+
+    const emailInput =
+        document.getElementById("settingsEmailInput");
+
+    const savedName =
+        localStorage.getItem("name") || "";
+
+    const savedEmail =
+        localStorage.getItem("email") || "";
+
+    if (nameInput) {
+        nameInput.value = savedName;
+    }
+
+    if (emailInput) {
+        emailInput.value = savedEmail;
+    }
+
+    loadAppearance();
+    loadLanguage();
+    loadNotifications();
+}
+
+
+/* LOAD SETTINGS WHEN PAGE OPENS */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    loadSettings();
+
+});
