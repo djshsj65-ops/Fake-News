@@ -1314,3 +1314,366 @@ body.dark-mode .settings-option select {
     }
 
 }
+/* ================= HOVER / LIFT EFFECT ================= */
+
+/* Sidebar options */
+.nav-btn {
+    transition: all 0.25s ease;
+}
+
+.nav-btn:hover {
+    background: #E3D7C6;
+    color: #4E3D2C;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 12px rgba(80, 60, 40, 0.12);
+}
+
+
+/* Main buttons */
+.primary-btn,
+.secondary-btn {
+    transition: all 0.25s ease;
+}
+
+.primary-btn:hover,
+.secondary-btn:hover {
+    transform: translateY(-3px);
+}
+
+
+/* Statistics cards */
+.stat {
+    transition: all 0.25s ease;
+}
+
+.stat:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(80, 60, 40, 0.12);
+}
+
+
+/* Checker card */
+.checker {
+    transition: all 0.25s ease;
+}
+
+.checker:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(80, 60, 40, 0.10);
+}
+
+
+/* Activity / tips panels */
+.panel {
+    transition: all 0.25s ease;
+}
+
+.panel:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(80, 60, 40, 0.10);
+}
+
+
+/* Individual checks */
+.check {
+    transition: all 0.25s ease;
+}
+
+.check:hover {
+    transform: translateY(-3px);
+    background: #F7F0E6;
+    box-shadow: 0 6px 15px rgba(80, 60, 40, 0.08);
+}
+
+
+/* Tips */
+.tip {
+    transition: all 0.25s ease;
+}
+
+.tip:hover {
+    transform: translateY(-2px);
+    background: #EDE2D4;
+}
+
+
+/* Result box */
+.result {
+    transition: all 0.25s ease;
+}
+
+.result:hover {
+    box-shadow: 0 8px 20px rgba(80, 60, 40, 0.08);
+}
+/* ================= SETTINGS ================= */
+
+.settings-card {
+    max-width: 1000px;
+}
+
+.settings-section {
+    margin-top: 25px;
+    padding: 22px;
+    background: #FFFDF8;
+    border: 1px solid #E5DBCE;
+    border-radius: 14px;
+    transition: all 0.25s ease;
+}
+
+.settings-section:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(80, 60, 40, 0.08);
+}
+
+
+/* SETTINGS HEADING */
+
+.settings-heading {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 18px;
+}
+
+.settings-icon {
+    font-size: 24px;
+}
+
+.settings-heading h3 {
+    margin: 0 0 4px;
+    color: #3F3428;
+}
+
+.settings-heading p {
+    margin: 0;
+    color: #806448;
+    font-size: 14px;
+}
+
+
+/* PROFILE */
+
+.settings-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.settings-field {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.settings-field label,
+.settings-password label {
+    font-weight: 600;
+    color: #4E3D2C;
+}
+
+.settings-field input,
+.settings-password input,
+.settings-option select {
+    padding: 12px 14px;
+    border: 1px solid #DCCFBE;
+    border-radius: 9px;
+    background: #FFFDF8;
+    color: #3F3428;
+    font-size: 14px;
+    outline: none;
+}
+
+.settings-field input:focus,
+.settings-password input:focus,
+.settings-option select:focus {
+    border-color: #927355;
+}
+
+
+/* BUTTON */
+
+.settings-btn {
+    margin-top: 16px;
+}
+
+
+/* OPTION ROW */
+
+.settings-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.settings-option b {
+    display: block;
+    color: #3F3428;
+    margin-bottom: 5px;
+}
+
+.settings-option small {
+    display: block;
+    color: #806448;
+}
+
+
+/* TOGGLE */
+
+.switch-toggle {
+    position: relative;
+    width: 48px;
+    height: 26px;
+    flex-shrink: 0;
+}
+
+.switch-toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    inset: 0;
+    background: #DCCFBE;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.slider::before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 3px;
+    top: 3px;
+    background: #FFFDF8;
+    border-radius: 50%;
+    transition: 0.25s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.switch-toggle input:checked + .slider {
+    background: #927355;
+}
+
+.switch-toggle input:checked + .slider::before {
+    transform: translateX(22px);
+}
+
+
+/* PASSWORD */
+
+.settings-password {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 500px;
+}
+
+
+/* DANGER BUTTON */
+
+.danger-btn {
+    border: none;
+    background: #A65F52;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.25s ease;
+}
+
+.danger-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(80, 60, 40, 0.15);
+}
+
+
+/* ABOUT / DISCLAIMER */
+
+.settings-text {
+    color: #806448;
+    line-height: 1.7;
+    margin: 0;
+}
+
+
+/* ACCOUNT */
+
+.account-section {
+    margin-bottom: 10px;
+}
+
+.logout-settings {
+    margin-top: 5px;
+}
+
+
+/* DARK MODE */
+
+body.dark-mode {
+    background: #2F2923;
+    color: #F6F1E8;
+}
+
+body.dark-mode .main {
+    background: #2F2923;
+}
+
+body.dark-mode .topbar {
+    background: #352E27;
+    border-color: #4A4036;
+}
+
+body.dark-mode .simple-card,
+body.dark-mode .settings-section,
+body.dark-mode .stat,
+body.dark-mode .checker,
+body.dark-mode .panel {
+    background: #3A332B;
+    border-color: #51463A;
+}
+
+body.dark-mode .settings-heading h3,
+body.dark-mode .settings-option b,
+body.dark-mode .settings-field label,
+body.dark-mode .settings-password label {
+    color: #F6F1E8;
+}
+
+body.dark-mode .settings-heading p,
+body.dark-mode .settings-option small,
+body.dark-mode .settings-text {
+    color: #C9B9A7;
+}
+
+body.dark-mode .settings-field input,
+body.dark-mode .settings-password input,
+body.dark-mode .settings-option select {
+    background: #2F2923;
+    color: #F6F1E8;
+    border-color: #5A4E42;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .settings-row {
+        grid-template-columns: 1fr;
+    }
+
+    .settings-option {
+        align-items: flex-start;
+    }
+
+    .settings-section {
+        padding: 18px;
+    }
+
+}
